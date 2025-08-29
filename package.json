@@ -1,0 +1,316 @@
+{
+  "name": "UDF",
+  "displayName": "UDF",
+  "description": "UDF Tooltip",
+  "author": "mlf",
+  "version": "1.0.0-1756024423019",
+  "enabledApiProposals": [
+    "findTextInFiles"
+  ],
+  "private": true,
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/udf"
+  },
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Other",
+    "Programming Languages"
+  ],
+  "keywords": [
+    "udf",
+    "tooltip",
+    "bookmark",
+    "code-navigation",
+    "documentation"
+  ],
+  "activationEvents": [
+    "onStartupFinished",
+    "onLanguage:javascript",
+    "onLanguage:typescript",
+    "onLanguage:python",
+    "onLanguage:java",
+    "onLanguage:cpp",
+    "onLanguage:c",
+    "onLanguage:xml"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "UDF.execJump",
+        "title": "execJump"
+      },
+      {
+        "command": "keywordTreeView.refresh",
+        "title": "refresh",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "keywordTreeView.add",
+        "title": "add",
+        "icon": "$(add)"
+      },
+      {
+        "command": "keywordTreeView.edit",
+        "title": "edit",
+        "icon": "$(edit)"
+      },
+      {
+        "command": "keywordTreeView.delete",
+        "title": "delete",
+        "icon": "$(trash)"
+      },
+      {
+        "command": "keywordTreeView.search",
+        "title": "search",
+        "icon": "$(search)"
+      },
+      {
+        "command": "keywordTreeView.import",
+        "title": "import",
+        "icon": "$(cloud-download)"
+      },
+      {
+        "command": "keywordTreeView.addFromSelection",
+        "title": "addFromSelection"
+      },
+      {
+        "command": "keywordTreeView.editFromHover",
+        "title": "editFromHover"
+      },
+      {
+        "command": "keywordTreeView.deleteFromHover",
+        "title": "deleteFromHover"
+      },
+      {
+        "command": "bookmarkThemeView.refreshBookmark",
+        "title": "Refresh",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "bookmarkThemeView.addTheme",
+        "title": "Add Theme",
+        "icon": "$(add)"
+      },
+      {
+        "command": "bookmarkThemeView.addBookmark",
+        "title": "Add Bookmark",
+        "icon": "$(bookmark)"
+      },
+      {
+        "command": "bookmarkThemeView.editTheme",
+        "title": "Edit Theme",
+        "icon": "$(edit)"
+      },
+      {
+        "command": "bookmarkThemeView.editBookmark",
+        "title": "Edit Bookmark",
+        "icon": "$(edit)"
+      },
+      {
+        "command": "bookmarkThemeView.deleteTheme",
+        "title": "Delete Theme",
+        "icon": "$(trash)"
+      },
+      {
+        "command": "bookmarkThemeView.deleteBookmark",
+        "title": "Delete Bookmark",
+        "icon": "$(trash)"
+      },
+      {
+        "command": "bookmarkThemeView.gotoBookmark",
+        "title": "Go to Bookmark",
+        "icon": "$(go-to-file)"
+      },
+      {
+        "command": "bookmarkThemeView.addBookmarkHere",
+        "title": "Add Bookmark Here"
+      },
+      {
+        "command": "bookmarkThemeView.editBookmarkInline",
+        "title": "Edit Bookmark"
+      },
+      {
+        "command": "bookmarkThemeView.forceRefreshDecorations",
+        "title": "? Force Refresh Bookmark Decorations"
+      },
+      {
+        "command": "bookmarkThemeView.debugBookmarkData",
+        "title": "? Debug Bookmark Data"
+      },
+      {
+        "command": "bookmarkThemeView.editBookmarkFromHover",
+        "title": "Edit Bookmark from Hover"
+      },
+      {
+        "command": "bookmarkThemeView.deleteBookmarkFromHover",
+        "title": "Delete Bookmark from Hover"
+      },
+      {
+        "command": "bookmarkThemeView.testHoverCommand",
+        "title": "Test Hover Command"
+      },
+      {
+        "command": "bookmarkThemeView.search",
+        "title": "search keyword",
+        "icon": "$(search)"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "keywordTreeView.addFromSelection",
+        "key": "ctrl+q",
+        "when": "editorTextFocus && editorHasSelection"
+      },
+      {
+        "command": "bookmarkThemeView.addBookmarkHere",
+        "key": "ctrl+oem_3",
+        "when": "editorTextFocus && editorHasSelection"
+      },
+      {
+        "command": "UDF.execJump",
+        "key": "ctrl+enter",
+        "when": "editorHasSelection"
+      },
+      {
+        "command": "UDF.execJump",
+        "key": "ctrl+enter",
+        "when": "!editorHasSelection"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "keywordTreeView.refresh",
+          "when": "view == keywordTreeView",
+          "group": "navigation"
+        },
+        {
+          "command": "keywordTreeView.add",
+          "when": "view == keywordTreeView",
+          "group": "navigation"
+        },
+        {
+          "command": "keywordTreeView.search",
+          "when": "view == keywordTreeView",
+          "group": "navigation"
+        },
+        {
+          "command": "keywordTreeView.import",
+          "when": "view == keywordTreeView",
+          "group": "navigation"
+        },
+        {
+          "command": "bookmarkThemeView.refreshBookmark",
+          "when": "view == bookmarkThemeView",
+          "group": "navigation"
+        },
+        {
+          "command": "bookmarkThemeView.addTheme",
+          "when": "view == bookmarkThemeView",
+          "group": "navigation"
+        },
+        {
+          "command": "bookmarkThemeView.search",
+          "when": "view == bookmarkThemeView",
+          "group": "navigation"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "keywordTreeView.edit",
+          "when": "view == keywordTreeView && viewItem == keywordItem",
+          "group": "inline"
+        },
+        {
+          "command": "keywordTreeView.delete",
+          "when": "view == keywordTreeView && viewItem == keywordItem",
+          "group": "inline"
+        },
+        {
+          "command": "bookmarkThemeView.editTheme",
+          "when": "view == bookmarkThemeView && viewItem == themeItem",
+          "group": "inline"
+        },
+        {
+          "command": "bookmarkThemeView.deleteTheme",
+          "when": "view == bookmarkThemeView && viewItem == themeItem",
+          "group": "inline"
+        },
+        {
+          "command": "bookmarkThemeView.editBookmark",
+          "when": "view == bookmarkThemeView && viewItem == bookmarkItem",
+          "group": "inline"
+        },
+        {
+          "command": "bookmarkThemeView.deleteBookmark",
+          "when": "view == bookmarkThemeView && viewItem == bookmarkItem",
+          "group": "inline"
+        }
+      ],
+      "editor/lineNumber/context": [
+        {
+          "command": "bookmarkThemeView.addBookmarkHere",
+          "when": "true",
+          "group": "bookmarks@1"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "UDF",
+      "properties": {
+        "keyword.configPath": {
+          "type": "string",
+          "default": "./keywords.json",
+          "description": "keywords config file path"
+        },
+        "bookmarkTheme.configPath": {
+          "type": "string",
+          "default": "./bookmark-themes.json",
+          "description": "bookmark theme config file path"
+        }
+      }
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "bookmarkThemeView",
+          "title": "UDF",
+          "icon": "icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "bookmarkThemeView": [
+        {
+          "id": "bookmarkThemeView",
+          "name": "bookmark theme",
+          "contextualTitle": "bookmark theme"
+        },
+        {
+          "id": "keywordTreeView",
+          "name": "keyword",
+          "contextualTitle": "keyword"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "code --extensionDevelopmentPath=.  --enable-proposed-api",
+    "build": "node updateVersion.js && vsce package",
+    "publish": "node updateVersion.js &&  vsce publish"
+  },
+  "dependencies": {
+    "iconv-lite": "^0.6.3",
+    "lru-cache": "^11.1.0",
+    "mssql": "^11.0.1"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.74.0"
+  }
+}
