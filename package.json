@@ -2,8 +2,9 @@
   "name": "UDF",
   "displayName": "UDF",
   "description": "UDF Tooltip",
-  "author": "mlf",
-  "version": "1.0.0-1756024423019",
+  "author": "leo",
+  "publisher": "leo",
+  "version": "1.0.0-202510171655",
   "enabledApiProposals": [
     "findTextInFiles"
   ],
@@ -263,15 +264,50 @@
     "configuration": {
       "title": "UDF",
       "properties": {
-        "keyword.configPath": {
+        "UDF.keyword.configPath": {
           "type": "string",
           "default": "./keywords.json",
           "description": "keywords config file path"
         },
-        "bookmarkTheme.configPath": {
+        "UDF.bookmarkTheme.configPath": {
           "type": "string",
           "default": "./bookmark-themes.json",
           "description": "bookmark theme config file path"
+        },
+        "UDF.SQL.server_name": {
+          "type": "string",
+          "default": "localhost:1433",
+          "description": "数据库服务器名称"
+        },
+        "UDF.SQL.database": {
+          "type": "string",
+          "default": "run",
+          "description": "数据库名称"
+        },
+        "UDF.SQL.user": {
+          "type": "string",
+          "default": "sa",
+          "description": "数据库用户"
+        },
+        "UDF.SQL.password": {
+          "type": "string",
+          "default": "",
+          "description": "数据库密码"
+        },
+        "UDF.SQL.Convert_GTT": {
+          "type": "string",
+          "default": "",
+          "description": "将以下存储过程中的临时表转换成全局临时表"
+        },
+        "UDF.SQL.Close_Transaction": {
+          "type": "string",
+          "default": "",
+          "description": "关闭以下存储过程中的事务"
+        },
+        "UDF.SQL.CDC_Monitor": {
+          "type": "string",
+          "default": "",
+          "description": "使用cdc监控以下表"
         }
       }
     },
@@ -306,11 +342,17 @@
     "publish": "node updateVersion.js &&  vsce publish"
   },
   "dependencies": {
+    "chalk": "^5.6.2",
+    "cli-table3": "^0.6.5",
+    "date-fns": "^4.1.0",
     "iconv-lite": "^0.6.3",
     "lru-cache": "^11.1.0",
-    "mssql": "^11.0.1"
+    "mssql": "^11.0.1",
+    "string-width": "^8.1.0",
+    "xml2js": "^0.6.2"
   },
   "devDependencies": {
-    "@types/vscode": "^1.74.0"
+    "@types/vscode": "^1.74.0",
+    "vsce": "^2.15.0"
   }
 }
